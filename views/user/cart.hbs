@@ -1,0 +1,205 @@
+<!--================Cart Area =================-->
+
+
+<div class="row container" style=" max-width: 100rem; width: 100%;">
+    {{#if cartempty}}
+    <div class="container" style="margin: 15rem;">
+        <h1 style="background-color: rgb(191, 231, 252); text-align: center;">CART IS EMPTY</h1>
+    </div>
+    {{else}}
+    <section class="col-md-8 cart_area padding_top" style="margin-top: 60px;">
+        <div class="container" style=" max-width: 100rem; width: 100%;">
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each cart.cartItems}}
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="">
+                                            <img class="img-fluid" src="/product-images/{{this.product._id}}.jpg"
+                                                style=" width: 7rem;height: 100px;" alt="" />
+                                        </div>
+                                        <div class="media-body">
+                                            <p>{{this.product.Name}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>{{this.product.Price}}</h5>
+                                </td>
+                                <td class="align-middle ">
+                                    <div class="input-group quantity mx-auto" style="width: 110px;margin-top: 25px;">
+                                        <div class="input-group-btn">
+                                            <button onclick="quantityMinus('{{this.product._id}}')"
+                                                class="btn btn-sm btn_2 btn-minus"
+                                                style="width: auto; height: auto;line-height: 0.5;">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm text-center"
+                                            style="height: 29px;" id="{{this.product._id}}" value="{{this.quantity}}"
+                                            disabled>
+                                        <div class="input-group-btn">
+                                            <button onclick="quantityPlus('{{this.product._id}}')"
+                                                class="btn btn-sm btn_2 btn-plus"
+                                                style="width: auto; height: auto;line-height: 0.5;">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h5>{{subTotal this.product.Price this.quantity}}</h5>
+                                </td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn_2"
+                                        style="width: 6rem; height: 2rem;line-height: 31px; border: none;">Delete</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Delete?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h2>Are You Sure</h2>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <a href="/delete-cart/{{this.product._id}}"
+                                                        class="btn btn-primary">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </section>
+
+    <div class="col-md-4" style="margin-top: 190px;">
+
+        
+            <div class="input-group">
+                <input id="couponCode" type="text" class="form-control p-4" placeholder="Coupon Code">
+                <div class="input-group-append">
+                    <button onclick="applyCoupon()" class="btn btn_2 " style="margin-top: -4px;">Apply Coupon</button>
+                </div>
+            </div>
+        <div class="card border-secondary mb-5">
+            <div class="card-header  border-0" style="background: #82c9cc;">
+                <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-3 pt-1">
+                    <h6 class="font-weight-medium">Subtotal</h6>
+                    <h6 class="font-weight-medium">Rs.<span id="subtotal">{{totalamount.total}}</span></h6>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <h6 class="font-weight-medium">Coupon Discount</h6>
+                    <h6 class=" font-weight-medium">-Rs.<span id="coupondiscount"></span></h6>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <h6 class="font-weight-medium">Delivery Charge</h6>
+                    <h6 class=" font-weight-medium">Rs.<span id="shipping">{{totalamount.shipping}}</span></h6>
+                </div>
+            </div>
+            <div class="card-footer border-secondary bg-transparent">
+                <div class="d-flex justify-content-between mt-2">
+                    <h5 class="font-weight-bold">Total</h5>
+                    <h5 class="font-weight-bold">Rs.<span id="GrandTotal">{{totalamount.grandtotal}}</span></h5>
+                </div>
+                <a href="/checkout" class="btn btn-block btn_2 my-3 py-3">Proceed To Checkout</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}
+
+
+
+<script>
+    const quantityPlus = async (id) => {
+        try {
+            const res = await axios.post(`/quantityPlus/${id}`, {
+            }).then((e) => {
+                console.log(id)
+                document.getElementById(id).value = e.data.response.count
+                window.location.reload()
+            })
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    const quantityMinus = async (id) => {
+        try {
+            const res = await axios.post(`/quantityMinus/${id}`, {
+            }).then((e) => {
+                console.log(id)
+                if (e.data.response.count === 0) {
+                    swal('Item Deleted', '', 'warning')
+                    setTimeout(() => {
+                    window.location.reload()
+                    }, 800);
+                } else {
+                    document.getElementById(id).value = e.data.response.count
+                    window.location.reload()
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+
+    const applyCoupon = async () => {
+        let code = document.getElementById('couponCode').value
+        if (code == "") {
+            swal('Invalid Coupon !',"", 'warning')
+        }else{
+            try{
+                const res= axios.post('/applycoupon',
+                {couponCode:code}).then((e)=>{
+                    console.log(e.data.response)
+                    if(!e.data.response.status){
+                        swal('Invalid Coupon','','warning')
+                    }else{
+                        document.getElementById('coupondiscount').innerHTML=e.data.response.discount
+                        document.getElementById('GrandTotal').innerHTML=e.data.response.grandtotal
+                        swal('Coupon added Successfully','','success')
+                    }
+                })
+            }catch(err){
+                console.log(err)
+            }
+        }
+    }
+</script>
+
+
+<!--================End Cart Area =================-->

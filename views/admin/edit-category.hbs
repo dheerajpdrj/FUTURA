@@ -1,0 +1,20 @@
+<div class="main-container w-50">
+    <div class=" card " style="background-color: rgb(242, 188, 188);">
+        <form action="/admin/editcategory/{{categorydetail._id}}" method="post">
+            <h3 style="text-align: center;">Edit Category</h3>
+            <div class="form-group">
+                <label for="exampleInputCategory">Category Name</label>
+                <input type="text" class="form-control" id="exampleInputCategory" aria-describedby="categoryHelp"
+                    name="CategoryName" value="{{categorydetail.CategoryName}}">
+            </div>
+            {{!-- <div class="form-group">
+                <label for="exampleInputCategory">Category Description</label>
+                <input type="text" class="form-control" id="exampleInputCategory" aria-describedby="categoryHelp"
+                    name="CategoryDescription">
+            </div> --}}
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+</div>

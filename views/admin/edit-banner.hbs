@@ -1,0 +1,29 @@
+<div class="main-container w-50 " >
+    <form action="/admin/editbanner/{{bannerdata._id}}" method="post" enctype="multipart/form-data" >
+        <div class="form-group">
+            <label for="exampleInputBanner">Banner Heading</label>
+            <input type="text" class="form-control" id="exampleInputBanner" name="Heading" aria-describedby="emailHelp" value="{{bannerdata.Heading}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputDescription">Description</label>
+            <input type="text" class="form-control" id="exampleInputDescription" name="Description" value="{{bannerdata.Description}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputDescription">Image</label>
+                <img src="/product-images/{{bannerdata._id}}.jpg" style="width: 100px; height: auto;" alt="" id="imageView">
+            <input type="file" class="form-control" id="exampleInputDescription" name="Image" onchange="viewimage(event)" >
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    function viewimage(event){
+        document.getElementById('imageView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>

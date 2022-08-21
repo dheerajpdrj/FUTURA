@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{title}}</title>
+
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Futura</title>
+  <link rel="icon" href="/img/favicon.png">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- animate CSS -->
+  <link rel="stylesheet" href="/css/animate.css">
+  <!-- owl carousel CSS -->
+  <link rel="stylesheet" href="/css/owl.carousel.min.css">
+  <!-- font awesome CSS -->
+  <link rel="stylesheet" href="/css/all.css">
+  <!-- flaticon CSS -->
+  <link rel="stylesheet" href="/css/flaticon.css">
+  <link rel="stylesheet" href="/css/themify-icons.css">
+  <!-- font awesome CSS -->
+  <link rel="stylesheet" href="/css/magnific-popup.css">
+  <!-- swiper CSS -->
+  <link rel="stylesheet" href="/css/slick.css">
+  <!-- style CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+
+
+
+  <!-- Site favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/vendors/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/vendors/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/vendors/images/favicon-16x16.png">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/vendors/styles/core.css">
+  <link rel="stylesheet" type="text/css" href="/vendors/styles/icon-font.min.css">
+  <link rel="stylesheet" type="text/css" href="/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="/vendors/styles/style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119386393-1');
+
+
+  </script>
+
+{{!-- data table --}}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
+
+</head>
+
+
+
+<body>
+  {{#if userDisplay}}
+  {{>userHeader}}
+  {{/if}}
+
+  {{#if admintemplate}}
+  {{>adminHeader}}
+  {{/if}}
+
+  {{{body}}}
+  {{!-- {{#if userDisplay}}
+  {{>userFooter}}
+  {{else}}
+  {{>adminFooter}}
+  {{/if}} --}}
+
+
+  <!-- jquery plugins here-->
+  <!-- jquery -->
+
+  <script src="/js/jquery-1.12.1.min.js"></script>
+
+  <!-- popper js -->
+  <script src="/js/popper.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="/js/bootstrap.min.js"></script>
+  <!-- easing js -->
+  <script src="/js/jquery.magnific-popup.js"></script>
+  <!-- swiper js -->
+  <script src="/js/swiper.min.js"></script>
+  <!-- swiper js -->
+  <script src="/js/masonry.pkgd.js"></script>
+  <!-- particles js -->
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/jquery.nice-select.min.js"></script>
+  <!-- slick js -->
+  <script src="/js/slick.min.js"></script>
+  <script src="/js/jquery.counterup.min.js"></script>
+  <script src="/js/waypoints.min.js"></script>
+  <script src="/js/contact.js"></script>
+  <script src="/js/jquery.ajaxchimp.min.js"></script>
+  <script src="/js/jquery.form.js"></script>
+  <script src="/js/jquery.validate.min.js"></script>
+  <script src="/js/mail-script.js"></script>
+  <script src="/js/stellar.js"></script>
+  <script src="/js/price_rangs.js"></script>
+  <!-- custom js -->
+  <script src="/js/custom.js"></script>
+
+
+  <script src="/vendors/scripts/core.js"></script>
+  <script src="/vendors/scripts/script.min.js"></script>
+  <script src="/vendors/scripts/process.js"></script>
+  <script src="/vendors/scripts/layout-settings.js"></script>
+ {{!--  --}}
+  <script src="/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+  <script src="/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+  <script src="/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+  <script src="/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+  {{!-- <script src="/vendors/scripts/dashboard.js"></script> --}}
+
+
+
+
+{{!-- jquery validation --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+</body>
+
+</html>
